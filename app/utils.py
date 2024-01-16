@@ -8,6 +8,7 @@ from flask import jsonify, request
 # ContactflowID = '875fd970-edea-4b12-ad02-0092eef03723'
 # ContactflowARN = 'arn:aws:connect:us-east-1:106294238846:instance/df42eb79-03d3-437f-ad91-a971455605c0/contact-flow/875fd970-edea-4b12-ad02-0092eef03723'
 
+#Function to [GET] the contact_flow from aws.
 def get_contact_flow_content(instance_id, contact_flow_id):
     # Initialize the boto3 client for Amazon Connect
     client = boto3.client(
@@ -30,6 +31,8 @@ def get_contact_flow_content(instance_id, contact_flow_id):
         return jsonify({"error": "Contact flow not found"}), 404
     except Exception as e:
         return jsonify({"error": str(e)}), 500
+
+
     
 
 #POST-DEL-NUMERO-BORRADOR-1
