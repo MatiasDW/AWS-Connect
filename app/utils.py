@@ -35,8 +35,13 @@ def get_contact_flow_content(instance_id, contact_flow_id):
 
 # Function to the [POST] method, where we search for the parameter, update it and convert it back to a Json.
 def modify_contact_flow_phone_number(instance_id, contact_flow_id, new_phone_number):
-    client = boto3.client('connect', region_name=os.getenv('AWS_REGION'))
-
+    client = boto3.client(
+        'connect',
+        region_name='us-east-1',
+        aws_access_key_id=os.getenv('AWS_ACCESS_KEY_ID'),
+        aws_secret_access_key=os.getenv('AWS_SECRET_ACCESS_KEY'),
+        aws_session_token=os.getenv('AWS_SESSION_TOKEN') 
+    )
     # Get the current content of the contact flow
     try:
         current_flow = client.describe_contact_flow(InstanceId=instance_id, ContactFlowId=contact_flow_id)
