@@ -1,7 +1,7 @@
 import os
 from flask import Flask
 from dotenv import load_dotenv
-from app.routes import define_routes, update_contact_flow  #Important to define this function in routes.py 
+from app.routes import define_routes  #Important to define this function in routes.py 
 
 load_dotenv()  #loading Variables enviorment 
 
